@@ -17,7 +17,7 @@
   </el-config-provider>
 </template>
 <script>
-import locale from 'element-plus/lib/locale/lang/zh-cn'
+import locale from 'element-plus/es/locale/lang/zh-cn'
 const data = Array.from(Array(114), (v, i) => {
   return {
     account: "uaa" + (i + 1),
