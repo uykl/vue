@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Vue</title>
+  <style>
+    .background-yellow {
+      background-color: yellow;
+    }
+
+    .color-red {
+      color: red;
+    }
+
+    .size-20 {
+      font-size: 20px;
+    }
+
+    .style-italic {
+      font-style: italic;
+    }
+
+    .weight-bold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>Class绑定</h2>
+    <div :class="classStr">绑定字符串</div>
+    <div :class="classArr">绑定数组</div>
+    <div :class="classObj1">绑定对象</div>
+    <div :class="classObj2">绑定对象，没有类名被绑定</div>
+  </div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script type="text/javascript">
+    const App = {
+      data() {
+        return {
+          classStr: 'background-yellow color-red size-20 weight-bold style-italic',
+          classArr: ['background-yellow', 'color-red', 'size-20', 'weight-bold', 'style-italic'],
+          classObj1: {
+            'background-yellow': true,
+            'color-red': true,
+            'size-20': true,
+            'weight-bold': true,
+            'style-italic': true
+          },
+          classObj2: {
+            'background-yellow': 0,
+            'color-red': '',
+            'size-20': undefined,
+            'weight-bold': false,
+            'style-italic': null
+          }
+        }
+      }
+    }
+    Vue.createApp(App).mount('#app')
+  </script>
+</body>
+
+</html>

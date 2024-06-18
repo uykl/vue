@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{html}}</div>
+        <div v-html="html"></div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script type="text/javascript">
+        const App = {
+            data() {
+                return {
+                    html: `<h2>这是一段html</h2>
+	     <img src="https://v3.cn.vuejs.org/logo.png" />
+	     `
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+
+</html>

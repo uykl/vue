@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Vue</title>
+</head>
+
+<body>
+  <!-- 父组件模板 -->
+  <div id="app">
+    <my-button></my-button>
+    <my-button>我的按钮</my-button>
+    <my-button><span style="color: red;">我的按钮2</span></my-button>
+  </div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script type="text/javascript">
+    const app = Vue.createApp({})
+    // 定义一个叫my-button的组件
+    app.component('my-button', {
+      template: `<button><slot>默认名称</slot></button>`
+    })
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

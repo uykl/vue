@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello Vue</title>
+</head>
+
+<body>
+  <!-- 父组件模板 -->
+  <div id="app">
+    <basic-input v-model:name="pname" v-model:title="ptitle"></basic-input>
+  </div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script type="text/javascript">
+    const app = Vue.createApp({
+      data() {
+        return {
+          pname: '名称',
+          ptitle: '标题'
+        }
+      },
+    })
+    // 定义一个叫BasicInput的组件
+    app.component('BasicInput', {
+      props: {
+        name: String,
+        title: String
+      },
+      emit: ['update:name', 'update:title'],
+      template: `
+      <div>
+        名称：<input type="text" :value="name" @input="$emit('update:name', $event.target.value)"  />
+        标题：<input type="text" :value="title" @input="$emit('update:title', $event.target.value)"  />
+        <p>名称是：{{name}}</p>
+        <p>标题是：{{title}}</p>
+      </div>`
+    })
+    app.mount('#app')
+  </script>
+</body>
+
+</html>
